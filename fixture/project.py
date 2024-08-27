@@ -23,9 +23,9 @@ class ProjectHelper:
     def open_project_page(self):
         wd = self.app.wd
         if not (wd.current_url.endswith("/manage_proj_page.php")):
-            wd.find_element_by_css_selector("a[href*='mantisbt-1.2.20/my_view_page.php']").click()
-            wd.find_element_by_css_selector("a[href*='mantisbt-1.2.20/manage_overview_page.php']").click()
-            wd.find_element_by_css_selector("a[href*='mantisbt-1.2.20/manage_proj_page.php']").click()
+            wd.find_element_by_link_text("My View").click()
+            wd.find_element_by_link_text("Manage").click()
+            wd.find_element_by_link_text("Manage Projects").click()
 
 
     def change_field_value(self, project_name, text):
