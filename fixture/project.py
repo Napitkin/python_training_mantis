@@ -15,7 +15,10 @@ class ProjectHelper:
     def delete_project_by_name(self, project_name):
         wd = self.app.wd
         self.open_project_page()
-        wd.find_element("link text", project_name).click()
+        project_elements = wd.find_elements_by_xpath(f"//a[text()='{project_name}']")
+        if not project_elements:
+            return
+        project_elements[0].click()
         wd.find_element_by_xpath("//input[@value='Delete Project']").click()
         wd.find_element_by_xpath("//input[@value='Delete Project']").click()
 
@@ -46,6 +49,7 @@ class ProjectHelper:
         wd.find_element_by_name("view_state").click()
         wd.find_element_by_xpath("//option[text()='private']").click()
 
+
     def get_project_list(self):
         wd = self.app.wd
         self.open_project_page()
@@ -55,4 +59,3 @@ class ProjectHelper:
             name = cells[0].text.strip()
             project_list.append(Project(project_name=name))
         return project_list
-
