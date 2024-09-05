@@ -33,7 +33,6 @@ class ProjectHelper:
 
     def change_field_value(self, project_name, text):
         wd = self.app.wd
-        # if project_name is not None:
         wd.find_element_by_name(project_name).click()
         wd.find_element_by_name(project_name).clear()
         wd.find_element_by_name(project_name).send_keys(text)

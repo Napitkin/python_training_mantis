@@ -3,7 +3,7 @@ from suds import WebFault
 
 class SoapHelper:
 
-    def __init__(self, app, config):
+    def __init__(self, app):
         self.app = app
 
     def can_login(self, username, password):
